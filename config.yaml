@@ -1,0 +1,41 @@
+sftp_connect:
+  host: "sftp.example.com"
+  port: 22
+  username: "etl_user"
+  service_name: "sftp-etl"          # used by keyring
+
+db_connect:
+  server: "sql.example.com"
+  database: "etl_db"
+
+SnapshotSource:
+  sftp_path: "/remote/snapshot"
+  local_path: "/data/snapshot"
+  index: 0
+
+AdminSource:
+  sftp_path: "/remote/admin"
+  local_path: "/data/admin"
+  prefix: "ADMIN_"
+  output_format: "both"             # csv | json | both
+
+BulkLoadSource:
+  sftp_path: "/remote/bulk"
+  local_path: "/data/bulk"
+  prefix: "BULK_"
+  db_server: "sql.example.com"
+  db_name: "etl_db"
+  db_schema: "bulkload"
+  xml_path: "/data/format_files"
+
+FlowAdminSource:
+  sftp_path: "/remote/flow/admin"
+  local_path: "/data/flow/admin"
+  prefix: "FLOWA_"
+  output_format: "both"
+
+FlowExtractSource:
+  sftp_path: "/remote/flow/extract"
+  local_path: "/data/flow/extract"
+  prefix: "FLOWE_"
+  index: 0
