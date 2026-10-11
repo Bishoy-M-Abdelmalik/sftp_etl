@@ -217,7 +217,7 @@ class BulkLoadSource(DataSource):
                 # Example cleanup – adjust IDs / tables to your environment
                 delete_stmt = text(
                     f"DELETE FROM [{self.db_schema}].[MainInstances] "
-                    "WHERE instance_id IN (271847, 272298)"
+                    "WHERE instance_id IN (1, 2)"
                 )
                 result = conn.execute(delete_stmt)
                 debug_logger.info("Cleaned up instances. Rows deleted: %d", result.rowcount)
