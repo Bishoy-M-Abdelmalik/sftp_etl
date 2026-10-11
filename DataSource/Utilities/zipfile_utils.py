@@ -12,7 +12,7 @@ import shutil
 import logging
 from typing import List, Tuple, Optional
 
-debug_logger = logging.getLogger("sftp_download_debug")
+debug_logger = logging.getLogger("etl_debug")
 
 def multi_part_zipfile_processing(files_path_list: List[str]) -> List[str]:
     """
